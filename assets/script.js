@@ -1,0 +1,3 @@
+//API KEY FOR WEATHER
+var APIKey = bb8cf7352a546a4f9b15fc1aa3026338
+var city 
