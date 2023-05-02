@@ -1,0 +1,12 @@
+:root{
+    
+}
+#header{
+    display: flex;
+    justify-content: center;
+    background-color: #4F6D7A;
+    color: #C0D6DF;
+    font-size: 2em;
+    padding: 10px;
+    margin: 10px, 10px;
+}
