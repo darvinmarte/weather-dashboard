@@ -1,12 +1,27 @@
 :root{
-    
+    --dark: #4F6D7A;    
+    --medblue: #C0D6DF;
+    --lightblue: #DBE9EE;
+    --purpblue: #4A6FA5;
+    --darkblue: #166088
 }
 #header{
     display: flex;
     justify-content: center;
-    background-color: #4F6D7A;
-    color: #C0D6DF;
+    background-color: var(--dark);
+    color: var(--medblue);
     font-size: 2em;
     padding: 10px;
-    margin: 10px, 10px;
+    margin: 50px;
+}
+
+#citySearch {
+    border: black 3px solid;
+}
+#current{
+    border: black 3px solid;
+}
+
+#fiveDay {
+    border: black 3px solid;
 }
