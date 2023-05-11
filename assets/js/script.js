@@ -10,6 +10,11 @@ let currCity = document.querySelector("#currentCity");
 let fiveday = document.querySelector("#fiveDay");
 let inputEl = document.querySelector("#location");
 let button = document.querySelector("#searchButton");
+let fiveDiv = document.querySelector('#fiveDiv')
+let dayOne = document.querySelector('#day1')
+let dayTwo = document.querySelector('#day2')
+let dayThree = document.querySelector('#day3')
+
 
 function handleUserInput() {
   // get the user input
@@ -35,14 +40,14 @@ function currentWeather(city) {
       console.log("CURRENT WEATHER ", data);
       //city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the the wind speed
       
-    function start() {
-        setInterval(function () {
-            let currentTime = document.createElement("p")
-            currentTime.textcontent = (currentTime);
-            current.append(currentTime)
-        }, 1000);
-    };
-    start();
+    // function start() {
+    //     setInterval(function () {
+    //         let currentTime = document.createElement("p")
+    //         currentTime.textcontent = (currentTime);
+    //         current.append(currentTime)
+    //     }, 1000);
+    // };
+    // start();
 
       let cityEl = document.createElement("p");
       cityEl.textContent = data.name;
@@ -77,7 +82,24 @@ function forecast(city) {
     })
     .then(function (data) {
       console.log("FORECAST ", data);
+      // displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
       //create cards to display 5 day
+      let city = document.getElementById(header1)
+      city.textContent = data.id;
+      header1.append(city);
+      
+      temp.textContent = data.list[0].main.temp
+      temp1.append(temp);
+
+
+      let humidEl = document.createElement("p");
+      humidEl.textContent = 'Humidity: ' + data.main.humidity + '%';
+      current.append(humidEl);
+
+
+      let windEl = document.createElement('p');
+      windEl.textContent = 'Windspeed: ' + data.wind.speed + " MPH";
+      current.append(windEl);
     });
 }
 

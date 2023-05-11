@@ -1,27 +1,51 @@
-:root{
-    --dark: #4F6D7A;    
-    --medblue: #C0D6DF;
-    --lightblue: #DBE9EE;
-    --purpblue: #4A6FA5;
-    --darkblue: #166088
+:root {
+  --dark: #4f6d7a;
+  --medblue: #c0d6df;
+  --lightblue: #dbe9ee;
+  --purpblue: #4a6fa5;
+  --darkblue: #166088;
 }
-#header{
-    display: flex;
-    justify-content: center;
-    background-color: var(--dark);
-    color: var(--medblue);
-    font-size: 2em;
-    padding: 10px;
-    margin: 50px;
+body {
+  height: 100vh;
+  background-color: var(--medblue);
+}
+h2 {
+  color: var(--purpblue);
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  background-color: var(--dark);
+  color: var(--medblue);
+  font-size: 2em;
+  padding: 10px;
+  margin: 50px;
 }
 
 #citySearch {
-    border: black 3px solid;
+  padding: 10px;
+  border: var(--dark) 1px solid;
 }
-#current{
-    border: black 3px solid;
+
+#cityHistory {
+margin: 10px;
+  padding: 10px;
+  border: var(--dark) 1px solid;
+}
+#current {
+  padding: 10px;
+  margin: 10px;
+  border: var(--dark) 3px solid;
 }
 
 #fiveDay {
-    border: black 3px solid;
+  padding: 10px;
+  margin: 10px;
+  border: var(--dark) 3px solid;
+}
+
+.card{
+    background-color: var(--darkblue);
+    color: white;
 }
