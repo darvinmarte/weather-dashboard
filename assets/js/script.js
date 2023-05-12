@@ -14,15 +14,17 @@ let fiveDiv = document.querySelector('#fiveDiv')
 let dayOne = document.querySelector('#day1')
 let dayTwo = document.querySelector('#day2')
 let dayThree = document.querySelector('#day3')
+let currentWeatherEl = document.querySelector('#c-weather')
 
 
 function handleUserInput() {
   // get the user input
   let cityValue = inputEl.value;
   // once user clicks sumbit button
-
   currentWeather(cityValue);
   forecast(cityValue);
+
+  saveSearch()
 }
 
 function currentWeather(city) {
@@ -38,34 +40,36 @@ function currentWeather(city) {
     })
     .then(function (data) {
       console.log("CURRENT WEATHER ", data);
+      currentWeatherEl.innerHTML = ''
       //city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the the wind speed
-      
-    // function start() {
-    //     setInterval(function () {
-    //         let currentTime = document.createElement("p")
-    //         currentTime.textcontent = (currentTime);
-    //         current.append(currentTime)
-    //     }, 1000);
-    // };
-    // start();
+    
+    var now = dayjs().format("MMMM-DD-YYYY")
+    var nowTime = document.createElement('p')
+    nowTime.textContent = now
+    currentWeatherEl.append(nowTime)
+
+    var icon = data.weather[0].icon
+    var iconUrl = `https://openweathermap.org/img/w/${icon}.png`
+    var iconImage = `<img src='${iconUrl}' alt='${data.weather[0].description}'/>`
+    currentWeatherEl.innerHTML = iconImage
+
 
       let cityEl = document.createElement("p");
       cityEl.textContent = data.name;
-      current.append(cityEl);
+      currentWeatherEl.append(cityEl);
       
       let todayWeath = document.createElement("div");
       todayWeath.textContent = 'Temperature: ' + data.main.temp + "℉";
-      current.append(todayWeath);
-
+      currentWeatherEl.append(todayWeath);
 
       let humidEl = document.createElement("p");
       humidEl.textContent = 'Humidity: ' + data.main.humidity + '%';
-      current.append(humidEl);
+      currentWeatherEl.append(humidEl);
 
 
       let windEl = document.createElement('p');
       windEl.textContent = 'Windspeed: ' + data.wind.speed + " MPH";
-      current.append(windEl);
+      currentWeatherEl.append(windEl);
     });
 }
 
@@ -82,27 +86,36 @@ function forecast(city) {
     })
     .then(function (data) {
       console.log("FORECAST ", data);
-      // displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-      //create cards to display 5 day
-      let city = document.getElementById(header1)
-      city.textContent = data.id;
-      header1.append(city);
-      
-      temp.textContent = data.list[0].main.temp
-      temp1.append(temp);
+      var fiveDayData = data.list.filter(day => day.dt_txt.includes('12:00:00'))
+      console.log(fiveDayData)
+    for( var i = 0; i < fiveDayData.length; i++){
+      var temp1 = document.querySelector('#temp1')
+      temp1.innerHTML = fiveDayData[0].main.temp
 
+      var temp2 = document.querySelector('#temp2')
+      temp2.innerHTML = fiveDayData[1].main.temp
 
-      let humidEl = document.createElement("p");
-      humidEl.textContent = 'Humidity: ' + data.main.humidity + '%';
-      current.append(humidEl);
-
-
-      let windEl = document.createElement('p');
-      windEl.textContent = 'Windspeed: ' + data.wind.speed + " MPH";
-      current.append(windEl);
+      var temp3 = document.querySelector('#temp1')
+      temp1.innerHTML = fiveDayData[0].main.temp
+    }
     });
 }
 
+function saveSearch(cityName) {
+  var storedCity = document.getElementById("location").value;
+  localStorage.setItem(cityName, storedCity);
+  var createLi = document.createElement("li");
+  createLi.className += "history-btn"
+  createLi.textContent = storedCity;
+  document.getElementById("history").appendChild(createLi);
+}
+
+document.addEventListener("click", function(event) {
+  if (event.target && event.target.matches("#history li")) {
+    var listCity = event.target.textContent;
+    currentWeather(listCity);
+  }
+});
 //Local storage to store weather data
 
 button.addEventListener("click", handleUserInput);

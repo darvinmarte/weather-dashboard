@@ -45,6 +45,10 @@ margin: 10px;
   border: var(--dark) 3px solid;
 }
 
+#history li:hover {
+cursor: pointer;
+
+}
 .card{
     background-color: var(--darkblue);
     color: white;

@@ -15,6 +15,7 @@ N/A
 
 ## Usage
 - This is the link to the deployed website
+https://darvinmarte.github.io/weather-dashboard/ 
 
 
 
