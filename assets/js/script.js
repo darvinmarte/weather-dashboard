@@ -48,8 +48,6 @@ function currentWeather(city) {
     .then(function (data) {
       console.log("CURRENT WEATHER ", data);
       currentWeatherEl.innerHTML = "";
-      //city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the the wind speed
-
 
       var icon = data.weather[0].icon;
       var iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
@@ -99,21 +97,17 @@ function forecast(city) {
       console.log(fiveDayData);
       for (var i = 0; i < fiveDayData.length; i++) {
         
-
-        var fivDay = dayjs().format("MMMM-DD-YYYY");
-        var fivDayTime = document.getElementById(fivDayDay)
         // DAY 1
-
         var icon1 = fiveDayData[0].weather[0].icon;
         var iconUrl1 = `https://openweathermap.org/img/w/${icon1}.png`;
         var iconImage1 = `<img src='${iconUrl1}' alt='${fiveDayData[0].weather[0].description}'/>`;
         fivDayDay.innerHTML = iconImage1;
 
         var temp1 = document.querySelector("#temp1");
-        temp1.innerHTML = 'Temp: ' + fiveDayData[0].main.temp; + " ℉";
+        temp1.innerHTML = 'Temp: ' + fiveDayData[0].main.temp + "℉";
 
         var hum1 = document.querySelector("#hum1");
-        hum1.innerHTML = 'Humidity: ' + fiveDayData[0].main.humidity; + ' %';
+        hum1.innerHTML = 'Humidity: ' + fiveDayData[0].main.humidity + ' %';
 
         var wind1 = document.querySelector('#wind1');
         wind1.innerHTML = "Windspeed: " + fiveDayData[0].wind.speed + " MPH";
@@ -125,10 +119,10 @@ function forecast(city) {
         fivDayDay1.innerHTML = iconImage2;
 
         var temp2 = document.querySelector("#temp2");
-        temp2.innerHTML = 'Temp: ' + fiveDayData[1].main.temp;
+        temp2.innerHTML = 'Temp: ' + fiveDayData[1].main.temp + "℉";;
 
         var hum2 = document.querySelector("#hum2");
-        hum2.innerHTML = 'Humidity: ' + fiveDayData[1].main.humidity; + ' %';
+        hum2.innerHTML = 'Humidity: ' + fiveDayData[1].main.humidity + ' %';
 
         var wind2 = document.querySelector('#wind2');
         wind2.innerHTML = "Windspeed: " + fiveDayData[1].wind.speed + " MPH";
@@ -140,10 +134,10 @@ function forecast(city) {
         fivDayDay2.innerHTML = iconImage3;
 
         var temp3 = document.querySelector("#temp3");
-        temp3.innerHTML = 'Temp: ' + fiveDayData[2].main.temp;
+        temp3.innerHTML = 'Temp: ' + fiveDayData[2].main.temp + "℉";;
 
         var hum3 = document.querySelector("#hum3");
-        hum3.innerHTML = 'Humidity: ' + fiveDayData[2].main.humidity; + ' %';
+        hum3.innerHTML = 'Humidity: ' + fiveDayData[2].main.humidity + ' %';
 
         var wind3 = document.querySelector('#wind3');
         wind3.innerHTML = "Windspeed: " + fiveDayData[2].wind.speed + " MPH";
@@ -155,10 +149,10 @@ function forecast(city) {
         fivDayDay3.innerHTML = iconImage4;
 
         var temp4 = document.querySelector("#temp4");
-        temp4.innerHTML = 'Temp: ' + fiveDayData[3].main.temp;
+        temp4.innerHTML = 'Temp: ' + fiveDayData[3].main.temp + "℉";
 
         var hum4 = document.querySelector("#hum4");
-        hum4.innerHTML = 'Humidity: ' + fiveDayData[3].main.humidity; + ' %';
+        hum4.innerHTML = 'Humidity: ' + fiveDayData[3].main.humidity + ' %';
 
         var wind4 = document.querySelector('#wind4');
         wind4.innerHTML = "Windspeed: " + fiveDayData[3].wind.speed + " MPH";
@@ -169,10 +163,10 @@ function forecast(city) {
         fivDayDay4.innerHTML = iconImage5;
 
         var temp5 = document.querySelector("#temp5");
-        temp5.innerHTML = 'Temp: ' + fiveDayData[4].main.temp; + "℉";
+        temp5.innerHTML = 'Temp: ' + fiveDayData[4].main.temp + "℉";
 
         var hum5 = document.querySelector("#hum5");
-        hum5.innerHTML = 'Humidity: ' + fiveDayData[4].main.humidity; + ' %';
+        hum5.innerHTML = 'Humidity: ' + fiveDayData[4].main.humidity + ' %';
 
         var wind5 = document.querySelector('#wind5');
         wind5.innerHTML = "Windspeed: " + fiveDayData[4].wind.speed + " MPH";
