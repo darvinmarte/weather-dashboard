@@ -15,7 +15,14 @@ let dayOne = document.querySelector("#day1");
 let dayTwo = document.querySelector("#day2");
 let dayThree = document.querySelector("#day3");
 let currentWeatherEl = document.querySelector("#c-weather");
-let fivDayDay = document.querySelector('fivDayTime')
+let fivDayDay = document.querySelector('#fivDayTime')
+let fivDayDay1 = document.querySelector('#fivDayTime1')
+let fivDayDay2 = document.querySelector('#fivDayTime2')
+let fivDayDay3 = document.querySelector('#fivDayTime3')
+let fivDayDay4 = document.querySelector('#fivDayTime4')
+
+
+
 
 function handleUserInput() {
   // get the user input
@@ -92,14 +99,15 @@ function forecast(city) {
       console.log(fiveDayData);
       for (var i = 0; i < fiveDayData.length; i++) {
         
-        // var icon1 = data.weather[0].icon;
-        // var iconUrl1 = `https://openweathermap.org/img/w/${icon1}.png`;
-        // var iconImage1 = `<img src='${iconUrl}' alt='${data.weather[0].description}'/>`;
-        // currentWeatherEl.innerHTML = iconImage;
 
         var fivDay = dayjs().format("MMMM-DD-YYYY");
         var fivDayTime = document.getElementById(fivDayDay)
         // DAY 1
+        var icon1 = fiveDayData[0].weather[0].icon;
+        var iconUrl1 = `https://openweathermap.org/img/w/${icon1}.png`;
+        var iconImage1 = `<img src='${iconUrl1}' alt='${fiveDayData[0].weather[0].description}'/>`;
+        fivDayDay.innerHTML = iconImage1;
+
         var temp1 = document.querySelector("#temp1");
         temp1.innerHTML = 'Temp: ' + fiveDayData[0].main.temp; + " ℉";
 
@@ -110,6 +118,11 @@ function forecast(city) {
         wind1.innerHTML = "Windspeed: " + fiveDayData[0].wind.speed + " MPH";
         
         //DAY 2
+        var icon2 = fiveDayData[1].weather[0].icon;
+        var iconUrl2 = `https://openweathermap.org/img/w/${icon2}.png`;
+        var iconImage2 = `<img src='${iconUrl2}' alt='${fiveDayData[1].weather[0].description}'/>`;
+        fivDayDay1.innerHTML = iconImage2;
+
         var temp2 = document.querySelector("#temp2");
         temp2.innerHTML = 'Temp: ' + fiveDayData[1].main.temp;
 
@@ -120,6 +133,10 @@ function forecast(city) {
         wind2.innerHTML = "Windspeed: " + fiveDayData[1].wind.speed + " MPH";
 
         //DAY 3
+        var icon3 = fiveDayData[2].weather[0].icon;
+        var iconUrl3 = `https://openweathermap.org/img/w/${icon2}.png`;
+        var iconImage3 = `<img src='${iconUrl3}' alt='${fiveDayData[2].weather[0].description}'/>`;
+        fivDayDay2.innerHTML = iconImage3;
 
         var temp3 = document.querySelector("#temp3");
         temp3.innerHTML = 'Temp: ' + fiveDayData[2].main.temp;
@@ -131,6 +148,11 @@ function forecast(city) {
         wind3.innerHTML = "Windspeed: " + fiveDayData[2].wind.speed + " MPH";
         
         //DAY 4
+        var icon4 = fiveDayData[3].weather[0].icon;
+        var iconUrl4 = `https://openweathermap.org/img/w/${icon2}.png`;
+        var iconImage4 = `<img src='${iconUrl4}' alt='${fiveDayData[3].weather[0].description}'/>`;
+        fivDayDay3.innerHTML = iconImage4;
+
         var temp4 = document.querySelector("#temp4");
         temp4.innerHTML = 'Temp: ' + fiveDayData[3].main.temp;
 
@@ -141,6 +163,10 @@ function forecast(city) {
         wind4.innerHTML = "Windspeed: " + fiveDayData[3].wind.speed + " MPH";
 
         //DAY 5
+        var iconUrl5 = `https://openweathermap.org/img/w/${icon2}.png`;
+        var iconImage5 = `<img src='${iconUrl5}' alt='${fiveDayData[4].weather[0].description}'/>`;
+        fivDayDay4.innerHTML = iconImage5;
+
         var temp5 = document.querySelector("#temp5");
         temp5.innerHTML = 'Temp: ' + fiveDayData[4].main.temp; + "℉";
 
