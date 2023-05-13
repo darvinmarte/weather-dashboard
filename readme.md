@@ -19,7 +19,7 @@ https://darvinmarte.github.io/weather-dashboard/
 
 
 
-![](./assets/images/)
+![](./assets/images/Screenshot%202023-05-12%20at%208.27.06%20PM.png)
 ## Credits
 
 N/A

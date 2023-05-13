@@ -103,6 +103,7 @@ function forecast(city) {
         var fivDay = dayjs().format("MMMM-DD-YYYY");
         var fivDayTime = document.getElementById(fivDayDay)
         // DAY 1
+
         var icon1 = fiveDayData[0].weather[0].icon;
         var iconUrl1 = `https://openweathermap.org/img/w/${icon1}.png`;
         var iconImage1 = `<img src='${iconUrl1}' alt='${fiveDayData[0].weather[0].description}'/>`;
